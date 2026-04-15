@@ -123,9 +123,12 @@
     };
   };
 
-  # Install firefox.
+  # Install programs
   programs.firefox.enable = true;
   programs.git.enable = true;
+
+  # Gnome already has its own SSH agent
+  # programs.ssh.startAgent = true;
   
 
   # Allow unfree packages
@@ -140,6 +143,8 @@
     vscodium
     
     python3
+    poetry
+    
     clang
     clang-tools
     gcc
