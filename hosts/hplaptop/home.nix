@@ -76,15 +76,10 @@
 
   programs.git = {
     enable = true;
-    userName = "00ste";
-    userEmail = "amalberti75@gmail.com";
-    extraConfig = {
+    settings = {
+      user.name = "00ste";
+      user.email = "amalberti75@gmail.com";
       init.defaultBranch = "main";
     };
-    # settings = {
-    #   user.name = "00ste";
-    #   user.email = "amalberti75@gmail.com";
-    #   init.defaultBranch = "main";
-    # };
   };
 }
