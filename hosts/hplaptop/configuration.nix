@@ -138,9 +138,10 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     micro
+    vscodium
 
     wget
-    vscodium
+    tree
     
     python3
     poetry
