@@ -7,6 +7,7 @@
 				email = "amalberti75@gmail.com";
 			};
 			init.defaultBranch = "main";
+			core.editor = "micro";
 		};
 	};
 }
