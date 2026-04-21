@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, self, ... }:
 
 {
   # Home Manager needs a bit of information about you and the paths it should
@@ -7,7 +7,7 @@
   home.homeDirectory = "/home/stefano";
 
 	imports = [
-		../../home/programs/kitty
+		../../home/programs/kitty.nix
 	];
 	
   # This value determines the Home Manager release that your configuration is
@@ -73,6 +73,11 @@
   #
   home.sessionVariables = {
     # EDITOR = "emacs";
+    XDG_DATA_DIRS = lib.concatStringsSep ":"
+    [
+    	(builtins.getEnv "XDG_DATA_DIRS")
+    	"${config.home.homeDirectory}/.nix-profile/share"
+   	];
   };
 
   # Let Home Manager install and manage itself.
