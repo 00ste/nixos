@@ -125,11 +125,9 @@
 
   # Install programs
   programs.firefox.enable = true;
-  programs.git.enable = true;
 
   # Gnome already has its own SSH agent
   # programs.ssh.startAgent = true;
-  
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -137,24 +135,14 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    micro
-    vscodium
-
     wget
     tree
     
     python3
-    poetry
     
     clang
-    clang-tools
     gcc
-    bear
     gnumake
-    
-    rnote
-    discord-ptb
-    obsidian
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
