@@ -8,6 +8,7 @@
 
 	imports = [
 		../../home/programs/kitty.nix
+		../../home/programs/git.nix
 	];
 	
   # This value determines the Home Manager release that your configuration is
@@ -82,20 +83,4 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
-
-  programs = 
-  {
-    git = {
-      enable = true;
-      settings = {
-        user.name = "00ste";
-        user.email = "amalberti75@gmail.com";
-        init.defaultBranch = "main";
-      };
-    };
-    # ssh = {
-    #   enable = true;
-    #   addKeysToAgent = "yes";
-    # };
-  };
 }
