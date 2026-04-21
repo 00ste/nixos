@@ -6,6 +6,10 @@
   home.username = "stefano";
   home.homeDirectory = "/home/stefano";
 
+	imports = [
+		../../home/programs/kitty
+	];
+	
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
   # introduces backwards incompatible changes.
