@@ -9,5 +9,5 @@
 				isDefault = true;
 			};
 		};
-	}
+	};
 }

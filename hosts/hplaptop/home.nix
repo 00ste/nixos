@@ -12,7 +12,6 @@
 		../../home/programs/firefox.nix
 		../../home/programs/vscode.nix
 		../../home/programs/zed.nix
-		../../home/programs/discord.nix
 	];
 	
   # This value determines the Home Manager release that your configuration is
@@ -24,9 +23,12 @@
   # release notes.
   home.stateVersion = "25.11"; # Please read the comment before changing.
 
-  home.packages = [
+	nixpkgs.config.allowUnfree = true;
+
+  home.packages = with pkgs; [
 		obsidian
 		rnote
+		discord-ptb
 		micro
 		poetry
   ];

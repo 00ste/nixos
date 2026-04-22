@@ -5,38 +5,21 @@
 { config, pkgs, inputs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ../../main-user.nix
-      inputs.home-manager.nixosModules.default
-    ];
-
+  imports = [ # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    ../../main-user.nix
+    inputs.home-manager.nixosModules.default
+  ];
+ 
+  # Allow unfree packages
+  nixpkgs.config.allowUnfree = true;
+  
   # Bootloader.
-  #boot.loader.systemd-boot.enable = true;
-  #boot.loader.efi.canTouchEfiVariables = true;
-
-  #boot.loader.systemd-boot.configurationLimit = 5;
-
-  #boot.loader.entries = [
-  #  {
-  #    name = "fedora";
-  #    title = "Fedora (via GRUB)";
-  #    efi = "/EFI/fedora/shim.efi";
-  #  }
-  #];
-
   boot.loader = {
     grub = {
       enable = true;
       device = "nodev";
       efiSupport = true;
-      #extraEntries = ''
-      #  menuentry "Fedora" {
-      #    chainloader (
-      #      
-      #    }
-      #'';
     };
     efi = {
       canTouchEfiVariables = true;
@@ -128,9 +111,6 @@
 
   # Gnome already has its own SSH agent
   # programs.ssh.startAgent = true;
-
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget

@@ -1,7 +1,7 @@
 { lib, pkgs, ... }:
 
 {
-	programs.zed-editor: {
+	programs.zed-editor = {
 		enable = true;
 		extensions = [
 			# Extensions
@@ -9,6 +9,6 @@
 
 			# Themes
 			"catpuccin"
-		]
-	}
+		];
+	};
 }
