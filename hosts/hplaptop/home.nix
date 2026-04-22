@@ -65,6 +65,7 @@
   #  /etc/profiles/per-user/stefano/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
+    # EDITOR = "emacs";
     XDG_DATA_DIRS = lib.concatStringsSep ":"
     [
     	(builtins.getEnv "XDG_DATA_DIRS")
