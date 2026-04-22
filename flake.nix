@@ -10,12 +10,21 @@
     };
   };
 
-  outputs = { self, nixpkgs, ... }@inputs: {
+  outputs = { self, nixpkgs, ... }@inputs: let
+    dwlOverlay = final: prev: {
+      dwl-custom = import ./pkgs/dwl-custom.nix {
+        inherit (final) lib stdenv makeWrapper;
+      };
+    };
+  in {
     nixosConfigurations.hplaptop = nixpkgs.lib.nixosSystem {
       specialArgs = {inherit inputs;};
       modules = [
         ./hosts/hplaptop/configuration.nix
         inputs.home-manager.nixosModules.default
+        ({ pkgs, ... }: {
+          nixpkgs.overlays = [ dwlOverlay ];
+        })
       ];
     };
   };
