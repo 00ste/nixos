@@ -1,11 +1,11 @@
-{ lib, stdenv, fetchgit, makeWrapper }:
+{ lib, stdenv, makeWrapper }:
 
 stdenv.mkDerivation rec {
   pname = "dwl-custom";
   version = "2024-04-22";
 
   src = builtins.path {
-		path = /home/stefano/code/dwl;
+		path = ./dwl;
 		name = "dwl-source";
   };
 
