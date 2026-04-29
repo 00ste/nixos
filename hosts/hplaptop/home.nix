@@ -8,6 +8,7 @@
 
 	imports = [
 		../../home/programs/kitty.nix
+    ../../home/programs/alacritty.nix
 		../../home/programs/git.nix
 		../../home/programs/firefox.nix
 		../../home/programs/vscode.nix
