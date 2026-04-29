@@ -4,10 +4,12 @@
 	programs.firefox = {
 		enable = true;
 
+		/*
 		profiles = {
 			${config.home.username} = {
 				isDefault = true;
 			};
 		};
+		*/
 	};
 }

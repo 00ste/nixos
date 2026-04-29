@@ -1,7 +1,5 @@
-{ lib, ... }:
-
 {
-	programs.alacritty = lib.mkForce {
+	programs.alacritty = {
 		enable = true;
 		settings = {
       window.dimensions = {
@@ -27,7 +25,7 @@
         magenta = "#cda1fa";
         cyan = "#90e1c6";
         white = "#c7c7c7";
-      }
+      };
       colors.bright = {
         black = "#686868";
         red = "#f07178";
@@ -37,7 +35,7 @@
         magenta = "#d2a6ff";
         cyan = "#95e6cb";
         white = "#ffffff";
-      }
+      };
 	  };
   };
 }
