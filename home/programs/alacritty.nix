@@ -4,7 +4,7 @@
 		settings = {
       window.dimensions = {
         columns = 80;
-        rows = 44;
+        lines = 44;
       };
       window.opacity = 0.85;
 
@@ -14,7 +14,7 @@
       };
       colors.cursor = {
         text = "#0b0e14";
-        cursor = "#e6b450";
+        cursor = "#bfbdb6";
       };
       colors.normal = {
         black = "#11151c";
