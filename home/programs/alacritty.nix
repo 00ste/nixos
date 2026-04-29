@@ -4,7 +4,7 @@
 		settings = {
       window.dimensions = {
         columns = 80;
-        lines = 44;
+        lines = 24;
       };
       window.opacity = 0.85;
 
