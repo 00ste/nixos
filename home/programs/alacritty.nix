@@ -8,6 +8,26 @@
       };
       window.opacity = 0.85;
 
+      font = {
+        size = 11.0;
+        normal = {
+          family = "Lilex";
+          style = "medium";
+        };
+        bold = {
+          family = "Lilex";
+          style = "bold";
+        };
+        italic = {
+          family = "Lilex";
+          style = "medium italic";
+        };
+        bold_italic = {
+          family = "Lilex";
+          style = "bold italic";
+        };
+      };
+
       colors.primary = {
         background = "#0b0e14";
         foreground = "#bfbdb6";
