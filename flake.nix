@@ -12,7 +12,8 @@
 
   outputs = { self, nixpkgs, ... }@inputs: {
     nixosConfigurations.hplaptop = nixpkgs.lib.nixosSystem {
-      specialArgs = {inherit inputs;};
+      system = "x86_64-linux";
+      specialArgs = { inherit self inputs; };
       modules = [
         ./hosts/hplaptop/configuration.nix
         inputs.home-manager.nixosModules.default

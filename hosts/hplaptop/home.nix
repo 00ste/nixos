@@ -1,10 +1,11 @@
-{ config, pkgs, lib, self, ... }:
+{ config, pkgs, lib, /*self,*/ ... }:
 
 {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "stefano";
   home.homeDirectory = "/home/stefano";
+  #home.file.".face".source = "${self}/assets/face.png";
 
 	imports = [
 		../../home/programs/kitty.nix

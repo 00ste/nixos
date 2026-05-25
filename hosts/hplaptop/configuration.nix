@@ -58,43 +58,38 @@
     LC_TIME = "it_IT.UTF-8";
   };
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
+  services = {
+    xserver = {
+      enable = true;
+      xkb = {
+        layout = "pl";
+        variant = "";
+      };
+    };
 
-  # Enable the GNOME Desktop Environment.
-  services.displayManager.gdm.enable = true;
-  services.desktopManager.gnome.enable = true;
+    desktopManager.plasma6.enable = true;
+    desktopManager.gnome.enable = false;
 
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "it";
-    variant = "";
+    #displayManager.sddm = {
+    #  enable = true;
+    #  wayland.enable = true;
+    #};
+    displayManager.plasma-login-manager.enable = true;
+    displayManager.gdm.enable = false;
+
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+    };
+
+    #pulseaudio.enable = true;
+    #jack.enable = true;
   };
 
   # Configure console keymap
   console.keyMap = "it2";
-
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
-
-  # Enable sound with pipewire.
-  services.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
-
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
-  };
-
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   main-user.enable = true;
@@ -124,6 +119,36 @@
     clang
     gcc
     gnumake
+
+    kdePackages.discover # Optional: Software center for Flatpaks/firmware updates
+    kdePackages.kcalc # Calculator
+    kdePackages.kcharselect # Character map
+    kdePackages.kclock # Clock app
+    kdePackages.kcolorchooser # Color picker
+    kdePackages.kolourpaint # Simple paint program
+    kdePackages.ksystemlog # System log viewer
+    kdePackages.sddm-kcm # SDDM configuration module
+    kdiff3 # File/directory comparison tool
+    
+    # Hardware/System Utilities (Optional)
+    kdePackages.isoimagewriter # Write hybrid ISOs to USB
+    kdePackages.partitionmanager # Disk and partition management
+    hardinfo2 # System benchmarks and hardware info
+    wayland-utils # Wayland diagnostic tools
+    wl-clipboard # Wayland copy/paste support
+    vlc # Media player
+  ];
+
+  environment.plasma6.excludePackages = with pkgs; [
+    kdePackages.elisa # Music player
+    kdePackages.kdepim-runtime # Akonadi agents
+    kdePackages.kmahjongg
+    kdePackages.kmines
+    kdePackages.konversation # IRC client
+    kdePackages.kpat # Solitaire
+    kdePackages.ksudoku
+    kdePackages.ktorrent
+    kdePackages.konsole
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
